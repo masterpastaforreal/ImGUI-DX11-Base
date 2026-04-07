@@ -125,6 +125,7 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -133,6 +134,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Protections\anti_tamper.cpp" />
+    <ClCompile Include="Protections\Headers\anti_tamper.h" />
     <ClCompile Include="ImGUI\imgui.cpp" />
     <ClCompile Include="ImGUI\imgui_draw.cpp" />
     <ClCompile Include="ImGUI\imgui_impl_dx11.cpp" />
@@ -150,6 +153,7 @@
     <ClInclude Include="ImGUI\imgui_impl_dx11.h" />
     <ClInclude Include="ImGUI\imgui_impl_win32.h" />
     <ClInclude Include="ImGUI\imgui_internal.h" />
+    <ClInclude Include="Protections\Headers\skCrypter.h" />
     <ClInclude Include="settings.h" />
   </ItemGroup>
   <ItemGroup>

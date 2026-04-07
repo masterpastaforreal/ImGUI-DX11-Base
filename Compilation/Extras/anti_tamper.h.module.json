@@ -1,0 +1,22 @@
+{
+    "version": 1,
+    "revision": 0,
+    "rules": [
+        {
+            "primary-output": ".\\Compilation\\Extras\\anti_tamper.h.obj",
+            "outputs": [
+                "C:\\Users\\Lewis\\source\\repos\\My Projects\\Main GUI\\Compilation\\Extras\\vc145.pdb",
+                ".\\Compilation\\Extras\\",
+                "C:\\Users\\Lewis\\source\\repos\\My Projects\\Main GUI\\Compilation\\Extras\\anti_tamper.h.ifc"
+            ],
+            "provides": [
+                {
+                    "logical-name": "Protections\\Headers\\anti_tamper.h",
+                    "source-path": "c:\\users\\lewis\\source\\repos\\my projects\\main gui\\protections\\headers\\anti_tamper.h",
+                    "lookup-method": "absolute"
+                }
+            ],
+            "requires": []
+        }
+    ]
+}

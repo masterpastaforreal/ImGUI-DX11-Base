@@ -1,0 +1,22 @@
+{
+    "version": 1,
+    "revision": 0,
+    "rules": [
+        {
+            "primary-output": ".\\Compilation\\Extras\\anti_tamper.obj",
+            "outputs": [
+                ".\\Compilation\\Extras\\anti_tamper.h_72401F3302DFBB4.ifc.dt.module.json",
+                ".\\Compilation\\Extras\\anti_tamper.h_72401F3302DFBB4.ifc.dt.d.json",
+                ".\\Compilation\\Extras\\anti_tamper.h.ifc"
+            ],
+            "provides": [
+                {
+                    "logical-name": "C:\\Users\\Lewis\\source\\repos\\My Projects\\Main GUI\\Protections\\anti_tamper.h",
+                    "source-path": "c:\\users\\lewis\\source\\repos\\my projects\\main gui\\protections\\anti_tamper.h",
+                    "lookup-method": "absolute"
+                }
+            ],
+            "requires": []
+        }
+    ]
+}

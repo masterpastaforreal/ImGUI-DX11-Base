@@ -14,6 +14,9 @@
     <Filter Include="Source Files\Render">
       <UniqueIdentifier>{a212b76d-2673-44eb-818f-519c7bd99def}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Protections">
+      <UniqueIdentifier>{1a521b2e-468b-4f83-b998-c92a774ed3a6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -40,6 +43,12 @@
     <ClCompile Include="Render\render_gui.cpp">
       <Filter>Source Files\Render</Filter>
     </ClCompile>
+    <ClCompile Include="Protections\anti_tamper.cpp">
+      <Filter>Source Files\Protections</Filter>
+    </ClCompile>
+    <ClCompile Include="Protections\Headers\anti_tamper.h">
+      <Filter>Source Files\Protections</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="settings.h">
@@ -65,6 +74,9 @@
     </ClInclude>
     <ClInclude Include="ImGUI\imgui.h">
       <Filter>ImGUI\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Protections\Headers\skCrypter.h">
+      <Filter>Source Files\Protections</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

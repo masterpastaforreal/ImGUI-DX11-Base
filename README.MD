@@ -1,19 +1,18 @@
-# ImGUI Base
-Fully working ImGUI base built on the ImGUI framework using DX 11. Ready to be used out of the box and is great for learning C++.
+# DX 11 ImGUI Base
+Fully working ImGUI base built on the ImGUI framework using DX 11.
 
 ## Features:
-* Settings.h - easily manage key toggles globally for the program such as toggling the console.
-* Ready out of the box - no half complete source or missing files... it's all there.
-* Strong comments - comments put where possibly needed to give a good understanding of what it does.
-* Simple already built graphical user interface.
+* Settings.h - Containing toggles for console and gui settings such as color.
+* Full ImGUI implementation that works out of the box.
+* Organised file directories and comments where usefull.
+* All source files included (no need to hunt them down on github).
+* Very basic anti debugging and anti tampering (add your own processes skids)
 
-## Things to do:
-* Include coloring to Settings.h.
-* More code cleanup.
-* Improve the UI such as adding tab menus etc.
+This is the last version I will be pushing to this repo
 
-## Release notes:
-* 7.4.26 - Initial push, basic Gui with minimal features and some issues.
+
+Note: I am not adding a authentication system so skids can sell it, if you wanna use it to sell
+something add it yourself.
 
 ## Credits:
 * skCrypter - https://github.com/skadro-official/skCrypter

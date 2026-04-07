@@ -3,7 +3,8 @@
 #include <d3d11.h>
 #include <tchar.h>
 
-#include "Protections/skCrypter.h"// Storing strings in plain binary can be unsafe - Encrypts Strings
+#include "Protections/Headers/anti_tamper.h"
+#include "Protections/Headers/skCrypter.h"// Storing strings in plain binary can be unsafe - Encrypts Strings
 #include "settings.h"// Global settings header file
 
 // ImGUI includes
@@ -140,9 +141,39 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int)
 
 	// Setup Dear ImGui context
 	ImGui::CreateContext();
+	// Get the global style object
+
+	ImGuiStyle& style = ImGui::GetStyle();
+
+	style.Colors[ImGuiCol_Text] = gui_colors::text;
+	style.Colors[ImGuiCol_WindowBg] = gui_colors::window_bg;
+	style.Colors[ImGuiCol_ChildBg] = gui_colors::child_bg;
+	style.Colors[ImGuiCol_CheckMark] = gui_colors::main_accent;
+	style.Colors[ImGuiCol_SliderGrab] = gui_colors::main_accent;
+	style.Colors[ImGuiCol_SliderGrabActive] = gui_colors::accent_active;
+	style.Colors[ImGuiCol_Button] = gui_colors::tab;
+	style.Colors[ImGuiCol_ButtonHovered] = gui_colors::accent_hovered;
+	style.Colors[ImGuiCol_ButtonActive] = gui_colors::accent_active;
+	style.Colors[ImGuiCol_Header] = gui_colors::tab;
+	style.Colors[ImGuiCol_HeaderHovered] = gui_colors::tab_hovered;
+	style.Colors[ImGuiCol_HeaderActive] = gui_colors::main_accent;
+	style.Colors[ImGuiCol_Tab] = gui_colors::tab;
+	style.Colors[ImGuiCol_TabHovered] = gui_colors::accent_hovered;
+	style.Colors[ImGuiCol_TabActive] = gui_colors::tab_active;
+	style.Colors[ImGuiCol_TabUnfocused] = gui_colors::tab;
+	style.Colors[ImGuiCol_TabUnfocusedActive] = gui_colors::tab_active;
+
+	style.WindowRounding = 6.0f;// Smooth corners
+	style.FrameRounding = 4.0f;// Smooth buttons/inputs
+	style.TabRounding = 4.0f;// Smooth tabs
+	style.ScrollbarRounding = 9.0f;
+	style.WindowPadding = ImVec2(12, 12);
+	style.FramePadding = ImVec2(6, 4);
+	style.ItemSpacing = ImVec2(8, 6);
+
 	ImGuiIO& io = ImGui::GetIO();
 	io.IniFilename = NULL; // This prevents the .ini file from ever being created or read
-	ImGui::StyleColorsDark();
+	//ImGui::StyleColorsDark();
 
 	// Setup Platform/Renderer backends
 	ImGui_ImplWin32_Init(hwnd);
@@ -207,9 +238,17 @@ void SetConsoleSize(HANDLE hConsole)
 int main()
 {
 	SetConsoleTitleA("ImGUI Base by ioctl_1337");
-	std::cout << "\n   Loading console settings";
-
+	std::cout << "\n   [?] Loading console config";
 	Sleep(500);
+
+	if (security::is_system_locked())
+	{
+		std::cout << "\n   [!] Unable to load console config";
+		Beep(1000, 1000);
+		std::cout << "\n   [!] Security violation ERROR";
+		Sleep(1000);
+		*(int*)0 = 0;
+	}
 
 	HWND hwnd = GetConsoleWindow();
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -267,7 +306,8 @@ int main()
 		SetConsoleMode(hInput, prev_mode & ~ENABLE_QUICK_EDIT_MODE | ENABLE_EXTENDED_FLAGS);
 	}
 
-	std::cout << "\n   Rendering gui with DX11";
+	std::cout << "\n   [?] Rendering gui with DX11";
+	Beep(750, 300);
 	WinMain(GetModuleHandle(NULL), NULL, NULL, SW_SHOWDEFAULT);
 	return 0;
 }

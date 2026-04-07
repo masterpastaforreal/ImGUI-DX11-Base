@@ -122,7 +122,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int)
     // Create application window
     WNDCLASSEX wc = { sizeof(WNDCLASSEX), CS_CLASSDC, WndProc, 0L, 0L, GetModuleHandle(NULL), NULL, NULL, NULL, NULL, TEXT("gui_window"), NULL };
 	RegisterClassEx(&wc);
-	HWND hwnd = CreateWindowEx(WS_EX_LAYERED | WS_EX_TOPMOST | WS_EX_NOACTIVATE, _T("gui_window"), NULL, WS_POPUP, 0, 0, 3840, 2160, NULL, NULL, wc.hInstance, NULL);// 4K
+	//HWND hwnd = CreateWindowEx(WS_EX_LAYERED | WS_EX_TOPMOST | WS_EX_NOACTIVATE, _T("gui_window"), NULL, WS_POPUP, 0, 0, 3840, 2160, NULL, NULL, wc.hInstance, NULL);// 4K
+	HWND hwnd = CreateWindowEx(WS_EX_LAYERED | WS_EX_TOPMOST | WS_EX_NOACTIVATE, _T("gui_window"), NULL, WS_POPUP, 0, 0, 2560, 1440, NULL, NULL, wc.hInstance, NULL);// 1080p
 	//HWND hwnd = CreateWindowEx(WS_EX_LAYERED | WS_EX_TOPMOST | WS_EX_NOACTIVATE, _T("gui_window"), NULL, WS_POPUP, 0, 0, 1920, 1080, NULL, NULL, wc.hInstance, NULL);// 1080p
 
 	SetLayeredWindowAttributes(hwnd, RGB(0, 0, 0), 0, ULW_COLORKEY);
@@ -251,7 +252,22 @@ int main()
 
 		SetConsoleScreenBufferSize(hConsole, size);
 	}
-	std::cout << "\n   Rendering gui with DX11";
 
+	if (disablequickeditmode)// Disable quick edit mode to prevent the console from freezing when clicking inside it
+	{
+		HANDLE hInput = GetStdHandle(STD_INPUT_HANDLE);
+		DWORD prev_mode;
+
+		// Get the current input mode
+		GetConsoleMode(hInput, &prev_mode);
+
+		/* ENABLE_QUICK_EDIT_MODE allows mouse selection.
+		   ENABLE_EXTENDED_FLAGS is required to modify Quick Edit.
+		*/
+		SetConsoleMode(hInput, prev_mode & ~ENABLE_QUICK_EDIT_MODE | ENABLE_EXTENDED_FLAGS);
+	}
+
+	std::cout << "\n   Rendering gui with DX11";
 	WinMain(GetModuleHandle(NULL), NULL, NULL, SW_SHOWDEFAULT);
+	return 0;
 }

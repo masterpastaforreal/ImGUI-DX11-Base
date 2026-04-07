@@ -19,16 +19,12 @@
 
 void RenderGUI()
 {
-    DWORD window_flags = ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoResize;// Set the window flags (rules) the GUI must follow
+    ImGui::Begin("Example GUI", NULL, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoResize);
 
-    ImGui::Begin("Example GUI", NULL, window_flags);
-    ImGui::Text("Hello from Dear ImGui!");
-
-    static bool checkbox = false;
-    ImGui::Checkbox("Enable", &checkbox);
-
-    static float slider = 0.5f;
-    ImGui::SliderFloat("Value", &slider, 0.0f, 1.0f);
+    if (ImGui::Button("Exit"))
+    {
+		exit(0);
+	}
 
     ImGui::End();
 }

@@ -8,12 +8,13 @@ Fully working ImGUI base built on the ImGUI framework using DX 11. Ready to be u
 * Simple already built graphical user interface.
 
 ## Things to do:
-* Include coloring to Settings.h
-* More code cleanup
+* Include coloring to Settings.h.
+* More code cleanup.
 * Improve the UI such as adding tab menus etc.
 
-NOTE: If you're getting any build errors disable Whole Progra Optimization in the project settings and make sure your using the C++20 Standard.
+## Release notes:
+* 7.4.26 - Initial push, basic Gui with minimal features and some issues.
 
-
-Requires basic knowledge of C/C++.
-No I will not help you with compilation errors because you forgot a ; in line 341 :)
+## Credits:
+* skCrypter - https://github.com/skadro-official/skCrypter
+* ImGUI - https://github.com/ocornut/imgui
